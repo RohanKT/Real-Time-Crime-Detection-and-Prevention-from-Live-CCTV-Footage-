@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {{ turbo() }}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+        <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <title>Crime Detection - Home</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='vendor/bootstrap/cssbootstrap.min.css') }}" rel="stylesheet">
+
+    
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/templatemo-edu-meeting.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/owl.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/lightbox.css') }}">
+
+
+  </head>
+  <script type="text/javascript">
+    var intervalID = setInterval(update_values,1000);
+    
+      function update_values() {
+            $.getJSON("/updates",
+                   
+          function(data) {
+            $('#result').text(data.detection);
+            console.log(data);
+            if(data.detection=="Normal behaviour.")
+            {document.getElementById("myDiv").style.borderColor = "#6fb808"; }
+          });
+          
+        };
+       
+        
+        
+        function stopTextColor() {
+          clearInterval(intervalID);
+        }
+        
+    </script>
+<body onload="update_values();">
+
+  <!-- Sub Header -->
+
+  <header class="header-area header-sticky">
+      <div class="container">
+          <div class="row">
+              <div class="col-12">
+                  <nav class="main-nav">
+                      <!-- ***** Logo Start ***** -->
+                      
+                      <a href="index.html" class="logo">
+                          AntiCrimeAtic
+                      </a>
+                      <!-- ***** Logo End ***** -->
+                      <!-- ***** Menu Start ***** -->
+                      <ul class="nav" >
+                          <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                          <li class="scroll-to-section"><a href="#courses">Detect</a></li> 
+                          <li class="scroll-to-section"><a href="#our-facts">About us</a></li>
+                      </ul>
+                      <a class='menu-trigger'>
+                          <span>Menu</span>
+                      </a>
+                      <!-- ***** Menu End ***** -->
+                  </nav>
+              </div>
+          </div>
+      </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <!-- ***** Main Banner Area Start ***** -->
+  <section class="section main-banner" id="top" data-section="section1">
+      <video autoplay muted loop id="bg-video">
+          <source src="{{ url_for('static', filename='assets/images/crime.mp4') }}" type="video/mp4" />
+      </video>
+      <div class="container" style="width: 100%;">
+        <div class="row">
+         
+      <div class="video-overlay header-text">
+          <div class="col-md-6" style="position: absolute;left: 0%;top: 50%;right: 5%;">
+            <div class="caption">
+              <h3 style="margin: 5%;">AntiCrimeAtic</h3>
+              <h2 style="margin: 5%;">One tool. Infinite applications.</h2>
+              <p>Detect crimes in real time effortlessly with our SOTA machine learning model based on Facebook's newest approach to video processing : SlowFast Networks.</p>
+              <div class="main-button-red">
+                  <div class="scroll-to-section"><a href="#courses">Try now ></a></div>
+              </div>
+            </div>   
+          </div>
+          <div id="sample" class="col-md-6" style="position: absolute;left: 50%;top: 30%;right: 5%;">
+            <img src="{{ url_for('static', filename='assets/images/laptop.png') }}" class="rounded float-right" style="display: block; max-width: 100%;
+             height: auto;">
+          </div>
+      </div>
+    </div>
+  </div>     
+  </section>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script type=text/javascript>
+              $(function() {
+                $('a#test').on('click', function(e) {
+                  e.preventDefault()
+                  $.getJSON('/background_process_test',
+                      function(data) {
+                    //do nothing
+                  });
+                  return false;
+                });
+              });
+      </script>
+      <script type=text/javascript>
+              $(function() {
+                $('a#test2').on('click', function(e) {
+                  e.preventDefault()
+                  $.getJSON('/background_process_test2',
+                      function(data) {
+                    //do nothing
+                  });
+                  return false;
+                });
+              });
+      </script>
+      <div style="height: 30px;background-color: #1f262c;"></div>
+      <section class="our-courses" id="courses"  >    
+        <div class="container" style="min-height: 100vh;max-height: 100vh;">        
+                  <div class="row" >
+                    <div class="col-md-12" style="align-items: center; margin-top: 5%;margin-bottom: 3.5%; ">
+                      <img id="myDiv" style="display: block;
+                        width: 50%;
+                        margin-left: 25%;
+                        height: auto;
+                        border-radius: 25px;
+                        border: 8px solid;
+                        border-color: #121d03;"
+                      src="{{ url_for('video_feed') }}" >
+                    </div>
+                    </div>
+                    <div class="row">
+                          <form>
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2" style="align-content: center;">
+                            <a href=# id=test2><div class="btn btn-success btn-lg"  >Start Detection</div></a>
+                            </div>
+                            <div class="col-md-2" style="align-content: center;">
+                            <a href=# id=test><div class="btn btn-danger btn-lg">Stop Detection</div></a>
+                            </div>
+                            <div class="col-md-2" style="align-content: center;">
+                              <a href=# id=test3><div class="btn btn-primary btn-lg" >Report Error</div></a>
+                            </div>
+                            <div class="col-md-3"></div>
+                          </form>
+                    </div>  
+            <div class="row" style="margin-bottom: 2.5%;margin-top: 3.5%;">
+              <p  style="color: aliceblue;font-size: medium;"><span id="result">?</span></p>
+              <script>
+                document.getElementById("result").innerHTML;
+                </script>
+            </div>                 
+        </div>
+      </section>       
+    
+      <section class="our-facts" id="our-facts">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-lg-12">
+                  <h2>A FEW </h2>
+                </div>
+                <div class="col-lg-6">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="count-area-content percentage">
+                        <div class="count-digit">97.3</div>
+                        <div class="count-title">Success</div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="count-area-content">
+                        <div class="count-digit">88.7</div>
+                        <div class="count-title">Real world Test Accuracy</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="count-area-content new-students">
+                        <div class="count-digit">2345</div>
+                        <div class="count-title">New Cases</div>
+                      </div>
+                    </div> 
+                    <div class="col-12">
+                      <div class="count-area-content">
+                        <div class="count-digit">126</div>
+                        <div class="count-title">Current Cases</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div> 
+            <div class="col-lg-6 align-self-center">
+            <p style="color:yellow;font-size: 20px;">In most countries the detection of crime is the responsibility of the police, though special law enforcement agencies may be responsible for the discovery of particular types of crime (e.g., customs departments may be charged with combating smuggling and related offenses). Crime detection falls into three distinguishable phases: the discovery that a crime has been committed, the identification of a suspect, and the collection of sufficient evidence to indict the suspect before a court. Many crimes are discovered and reported by persons other than the police (e.g., victims or witnesses). Certain crimes—in particular those that involve a subject’s assent, such as dealing in illicit drugs or prostitution, or those in which there may be no identifiable victim, such as obscenity—are often not discovered unless the police take active steps to determine whether they have been committed. To detect such crimes, therefore, controversial methods are sometimes required (e.g., electronic eavesdropping, surveillance, interception of communications, and infiltration of gangs).</p>  
+            </div>
+          </div>
+          
+           
+          
+        </div>
+        
+
+  
+
+  
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/css/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/isotope.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/owl-carousel.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/lightbox.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/tabs.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/video.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/slick-slider.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/custom.js') }}"></script>
+    <script>
+        //according to loftblog tut
+        $('.nav li:first').addClass('active');
+
+        var showSection = function showSection(section, isAnimate) {
+          var
+          direction = section.replace(/#/, ''),
+          reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+          reqSectionPos = reqSection.offset().top - 0;
+
+          if (isAnimate) {
+            $('body, html').animate({
+              scrollTop: reqSectionPos },
+            800);
+          } else {
+            $('body, html').scrollTop(reqSectionPos);
+          }
+
+        };
+
+        var checkSection = function checkSection() {
+          $('.section').each(function () {
+            var
+            $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+            if (topEdge < wScroll && bottomEdge > wScroll) {
+              var
+              currentId = $this.data('section'),
+              reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+              reqLink.closest('li').addClass('active').
+              siblings().removeClass('active');
+            }
+          });
+        };
+
+        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+          e.preventDefault();
+          showSection($(this).attr('href'), true);
+        });
+
+        $(window).scroll(function () {
+          checkSection();
+        });
+    </script>
+</body>
+
+</body>
+</html>
